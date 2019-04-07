@@ -169,8 +169,8 @@ ll lcm(ll a,ll b)
 template<typename T>
 int fcmp(T a,T b,T eps)
 {
-    T t=a-b;
-    if(abs(t)<=eps)
+    T t=a-b,abst=t<0?-t:t;
+    if(abst<=eps)
         return 0;
     if(t>=-eps)
         return 1;
