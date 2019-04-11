@@ -23,7 +23,7 @@ const int minf=-2e9;
 const ll inf64=9e18;
 const ll minf64=-9e18;
 
-#ifdef WIN32
+#ifdef _WIN32
 inline int getchar_unlocked()
 {
     return _getchar_nolock();
