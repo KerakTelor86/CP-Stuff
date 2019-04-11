@@ -79,7 +79,7 @@ inline T read_int()
 //}
 
 template<typename T=long long> //asdf see line 37
-inline void print_int(T x,bool first=1) //better than the commented out one, no need for buffers
+inline void print_int(T x,bool first=1) //better than the commented out one above, no need for buffers
 {
     if(first&&x==0) //so it doesn't print an empty string if x is 0
     {
@@ -97,9 +97,9 @@ inline void print_int(T x,bool first=1) //better than the commented out one, no 
     print_char(x%10+'0');
 }
 
-inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
+inline void read_cstr(char *s,char delim='\n',bool skip_whtspc=0) //read_str but c string
 {
-    char t[bufsize],c;
+    char c;
     if(skip_whtspc) //uses read_char() to skip whitespaces if needed
         c=read_char();
     else
@@ -107,29 +107,18 @@ inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsi
     int idx=0;
     while(c!=delim) //while !=delim gets each char in the input stream
     {
-        t[idx++]=c;
-        c=raw_char();
-    }
-    t[idx]=0; //null behind t (c string)
-    raw_char(); //throws away the delim char
-    s=t; //initializes s to t
-}
-
-inline void read_cstr(char *s,char delim='\n',bool skip_whtspc=0) //read_str but c string
-{
-    char c;
-    if(skip_whtspc)
-        c=read_char();
-    else
-        c=raw_char();
-    int idx=0;
-    while(c!=delim)
-    {
         s[idx++]=c;
         c=raw_char();
     }
-    s[idx]=0;
-    raw_char();
+    s[idx]=0; //null behind t (c string)
+    raw_char(); //throws away the delim char
+}
+
+inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
+{
+    char t[bufsize];
+    read_cstr(t,delim,skip_whtspc);
+    s=t; //initializes s to t
 }
 
 inline void print_str(std::string s)
