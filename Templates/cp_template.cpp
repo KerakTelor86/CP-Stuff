@@ -93,24 +93,6 @@ inline void print_int(T x,bool first=1)
     print_char(x%10+'0');
 }
 
-inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
-{
-    char t[bufsize],c;
-    if(skip_whtspc)
-        c=read_char();
-    else
-        c=raw_char();
-    int idx=0;
-    while(c!=delim)
-    {
-        t[idx++]=c;
-        c=raw_char();
-    }
-    t[idx]=0;
-    raw_char();
-    s=t;
-}
-
 inline void read_cstr(char *s,char delim='\n',bool skip_whtspc=0)
 {
     char c;
@@ -126,6 +108,13 @@ inline void read_cstr(char *s,char delim='\n',bool skip_whtspc=0)
     }
     s[idx]=0;
     raw_char();
+}
+
+inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
+{
+    char t[bufsize];
+    read_cstr(t,delim,skip_whtspc);
+    s=t;
 }
 
 inline void print_str(std::string s)
