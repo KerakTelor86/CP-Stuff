@@ -8,6 +8,7 @@ inline int getchar_unlocked()
 {
     return _getchar_nolock();
 }
+
 inline void putchar_unlocked(char c)
 {
     _putchar_nolock(c);
@@ -52,29 +53,48 @@ inline T read_int()
     }
     return neg?-temp:temp; //owo?uwu:qwq;
 }
+//
+//template<typename T=long long> //asdf see line 37
+//inline void print_int(T x)
+//{
+//    if(x==0) //so it doesn't print an empty string if x is 0
+//    {
+//        print_char('0');
+//        return;
+//    }
+//    char buff[24]; //char buffer
+//    int idx=0; //index thingy
+//    if(x<0) //if x is negative
+//    {
+//        print_char('-'); //prints -
+//        x=-x; //turns x into a positive integer for easier handling down below
+//    }
+//    while(x) //while x!=0
+//    {
+//        buff[idx++]=x%10+'0'; //yee
+//        x/=10; //yee
+//    }
+//    while(idx)
+//        print_char(buff[--idx]); //prints buffer starting from behind
+//}
 
 template<typename T=long long> //asdf see line 37
-inline void print_int(T x)
+inline void print_int(T x,bool first=1) //better than the commented out one, no need for buffers
 {
-    if(x==0) //so it doesn't print an empty string if x is 0
+    if(first&&x==0) //so it doesn't print an empty string if x is 0
     {
         print_char('0');
         return;
     }
-    char buff[24]; //char buffer
-    int idx=0; //index thingy
-    if(x<0) //if x is negative
+    else if(x==0) //stops when x is 0
+        return;
+    if(x<0)
     {
-        print_char('-'); //prints -
-        x=-x; //turns x into a positive integer for easier handling down below
+        print_char('-');
+        x=-x;
     }
-    while(x) //while x!=0
-    {
-        buff[idx++]=x%10+'0'; //yee
-        x/=10; //yee
-    }
-    while(idx)
-        print_char(buff[--idx]); //prints buffer starting from behind
+    print_int(x/10,0); //uses recursion to print from behind
+    print_char(x%10+'0');
 }
 
 inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
