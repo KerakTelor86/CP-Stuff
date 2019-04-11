@@ -3,7 +3,7 @@
 
 #include <cstdio>
 
-#ifdef WIN32 //so it doesn't explode when run on a windows machine
+#ifdef _WIN32 //so it doesn't explode when run on a windows machine
 inline int getchar_unlocked()
 {
     return _getchar_nolock();
