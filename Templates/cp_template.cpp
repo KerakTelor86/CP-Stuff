@@ -1,3 +1,16 @@
+////////////////////////////////
+//        CP Template         //
+//        (KerakTelor)        //
+//      you cin you lose      //
+////////////////////////////////
+
+////////////////////////////////////////////
+// /*online judge: time limit exceeded */ //
+// /*cp nibbas:                        */ //
+//   #pragma GCC optimize("Ofast")        //
+//   #pragma GCC optimize("unroll-loops") //
+////////////////////////////////////////////
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -15,6 +28,7 @@ inline int getchar_unlocked()
 {
     return _getchar_nolock();
 }
+
 inline void putchar_unlocked(char c)
 {
     _putchar_nolock(c);
@@ -60,28 +74,23 @@ inline T read_int()
     return neg?-temp:temp;
 }
 
-template<typename T=ll>
-inline void print_int(T x)
+template<typename T=long long>
+inline void print_int(T x,bool first=1)
 {
-    if(x==0)
+    if(first&&x==0)
     {
         print_char('0');
         return;
     }
-    char buff[24];
-    int idx=0;
+    else if(x==0)
+        return;
     if(x<0)
     {
         print_char('-');
         x=-x;
     }
-    while(x)
-    {
-        buff[idx++]=x%10+'0';
-        x/=10;
-    }
-    while(idx)
-        print_char(buff[--idx]);
+    print_int(x/10,0);
+    print_char(x%10+'0');
 }
 
 inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
@@ -132,7 +141,7 @@ inline void print_cstr(const char *s)
         print_char(*s++);
 }
 
-ll pow(int a,int b,ll m=inf64)
+ll pow(ll a,ll b,ll m=inf64)
 {
     ll ret=1;
     while(b)
