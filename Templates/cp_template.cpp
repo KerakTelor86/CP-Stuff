@@ -16,12 +16,8 @@
 using namespace std;
 
 typedef long long ll;
-const int flp=1e-6;
-const int dflp=1e-12;
 const int inf=2e9;
-const int minf=-2e9;
 const ll inf64=9e18;
-const ll minf64=-9e18;
 
 #ifdef _WIN32
 inline int getchar_unlocked()
@@ -74,10 +70,10 @@ inline T read_int()
     return neg?-temp:temp;
 }
 
-template<typename T=long long>
-inline void print_int(T x,bool first=1)
+template<typename T=ll>
+inline void print_int(T x,bool f=1)
 {
-    if(first&&x==0)
+    if(f&&x==0)
     {
         print_char('0');
         return;
@@ -110,14 +106,14 @@ inline void read_cstr(char *s,char delim='\n',bool skip_whtspc=0)
     raw_char();
 }
 
-inline void read_str(std::string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
+inline void read_str(string &s,char delim='\n',bool skip_whtspc=0,int bufsize=8192)
 {
     char t[bufsize];
     read_cstr(t,delim,skip_whtspc);
     s=t;
 }
 
-inline void print_str(std::string s)
+inline void print_str(string s)
 {
     int len=s.length();
     for(int i=0;i<len;++i)
@@ -130,47 +126,33 @@ inline void print_cstr(const char *s)
         print_char(*s++);
 }
 
-ll pow(ll a,ll b,ll m=inf64)
+ll powa(ll a,ll b,ll m=inf64)
 {
-    ll ret=1;
-    while(b)
-        if(b&1)
-        {
-            ret*=a;
-            --b;
-        }
-        else
-        {
-            b>>=1;
-            ret*=ret;
-        }
-    return ret;
+    if(b==0)
+        return a;
+    if(b&1)
+        return (a*powa(a,b-1,m))%m;
+    ll x=powa(a,b>>1,m);
+    return (x*x)%m;
 }
 
 ll gcd(ll a,ll b)
 {
-    while(b)
-    {
-        ll t=a;
-        a=b;
-        b=a%b;
-    }
-    return a;
+    return b==0?a:gcd(b,a%b);
 }
 
 ll lcm(ll a,ll b)
 {
-    ll t=gcd(a,b);
-    return a/t*b/t;
+    return a*b/gcd(a,b);
 }
 
 template<typename T>
 int fcmp(T a,T b,T eps)
 {
-    T t=a-b,abst=t<0?-t:t;
-    if(abst<=eps)
+    T t=a-b,abst=abs(t);
+    if(abst<eps)
         return 0;
-    if(t>=-eps)
+    if(t>-eps)
         return 1;
     return -1;
 }
