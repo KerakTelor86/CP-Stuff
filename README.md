@@ -3,9 +3,11 @@ Shitty templates, buggy headers, useless snippets, and other worthless competiti
 
 Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
+
 # Headers
 
 - fastio.h: Basically just use this when scanf and/or printf TLEs.
+
 
 - pbds.hpp:
 	Insert: Inserts a node into the thing in O(log(n))
@@ -20,9 +22,11 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
 	Logarithmic time for life.
 	
+	
 # Snippets
 
 - float_compare.cpp: Buggy crappy float comparison thingy, don't use if you don't want a WA lmao
+
 
 # Templates
 
