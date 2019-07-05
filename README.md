@@ -11,7 +11,7 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
 
 
-- pbds.hpp:
+- pbds.hpp:	Logarithmic time for life.
 
 	Insert: Inserts a node into the thing in O(log(n))
 	
@@ -22,8 +22,6 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 	Find by Index: (operator []) Array index kind of thing. O(log(n))
 	
 	Order: Finds the number of elements smaller than val in O(log(n))
-
-	Logarithmic time for life.
 	
 	
 # Snippets
