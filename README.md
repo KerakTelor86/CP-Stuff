@@ -9,7 +9,10 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 - fastio.h: Basically just use this when scanf and/or printf TLEs.
 
 
+
+
 - pbds.hpp:
+
 	Insert: Inserts a node into the thing in O(log(n))
 	
 	Erase: Deletes something from the thing in O(log(n)) if found
