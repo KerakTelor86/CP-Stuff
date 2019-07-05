@@ -8,20 +8,17 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
 - fastio.h: Basically just use this when scanf and/or printf TLEs.
 
-
-
-
 - pbds.hpp:	Logarithmic time for life.
 
-	Insert: Inserts a node into the thing in O(log(n))
+  - Insert: Inserts a node into the thing in O(log(n))
 	
-	Erase: Deletes something from the thing in O(log(n)) if found
+  - Erase: Deletes something from the thing in O(log(n)) if found
 	
-	Find: returns true when element is found in the thing. O(log(n))
+  -	Find: returns true when element is found in the thing. O(log(n))
 	
-	Find by Index: (operator []) Array index kind of thing. O(log(n))
+  -	Find by Index: (operator []) Array index kind of thing. O(log(n))
 	
-	Order: Finds the number of elements smaller than val in O(log(n))
+  -	Order: Finds the number of elements smaller than val in O(log(n))
 	
 	
 # Snippets
