@@ -8,7 +8,7 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
 - fastio.h: Basically just use this when scanf and/or printf TLEs.
 
-- pbds.hpp:	Logarithmic time for life.
+- pbds.hpp:	AVL-based PBDS, logarithmic time for life.
 
   - Insert: Inserts a node into the thing in O(log(n))
 	
