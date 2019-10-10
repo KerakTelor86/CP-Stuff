@@ -1,5 +1,5 @@
 # CP-Stuff
-Shitty templates, buggy headers, useless snippets, and other worthless competitive programming stuff I wrote.
+Templates, headers, implementations for competitive programming-related stuff.
 
 Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
