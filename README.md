@@ -1,14 +1,12 @@
 # CP-Stuff
 Templates, headers, implementations for competitive programming-related stuff.
 
-Basically pbds.hpp is like the only thing worth a damn in this entire repo.
-
 
 # Headers
 
-- fastio.h: Basically just use this when scanf and/or printf TLEs.
+- fastio.h: Fast I/O with getchar_unlocked() or \_getchar_nolock() depending on which OS it's compiled in.
 
-- ost.hpp:	AVL-based Ordered Set, logarithmic time for life.
+- ost.hpp:	AVL-based Ordered Set.
 
   - Insert: Inserts a node into the thing in O(log(n))
 	
@@ -28,4 +26,4 @@ Basically pbds.hpp is like the only thing worth a damn in this entire repo.
 
 # Templates
 
-- cp_template.cpp: My personal template for CP. Buggy, would probably cause lots of WAs and RTEs lmao, use if you don't care.
+- cp_template.cpp: My personal CP template
