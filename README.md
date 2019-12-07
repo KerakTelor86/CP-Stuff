@@ -27,6 +27,8 @@ Templates, headers, implementations for competitive programming-related stuff.
 
 - treap.cpp: Normal treap with split kth
 
+- kmp.cpp: Knuth-Morris-Pratt string matching function
+
 # Templates
 
 - cp_template.cpp: Daily CP template.
