@@ -29,6 +29,8 @@ Templates, headers, implementations for competitive programming-related stuff.
 
 - kmp.cpp: Knuth-Morris-Pratt string matching function
 
+- hld.cpp: Heavy-light decomposition (TimusOJ 1553 - Caves and Tunnels)
+
 # Templates
 
 - cp_template.cpp: Daily CP template.
