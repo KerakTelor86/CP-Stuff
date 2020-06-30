@@ -17,7 +17,7 @@ Templates, headers, implementations for competitive programming-related stuff an
 
 - dijkstra.cpp: Dijkstra's algo for shortest path from s to t
 
-- dynamic_memo.cpp: Dynamic Memoization: memoization that keeps memory usage down by discarding less commonly used values
+- dynamic_memo.cpp: Dynamic Memoization: memoization that keeps memory usage down by discarding less commonly used values, crappy implementation
 
 - edmonds-karp.cpp: Maxflow with Edmonds-Karp algo (LightOJ 1153 - Internet Bandwidth)
 
