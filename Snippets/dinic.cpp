@@ -73,7 +73,8 @@ struct Dinic // Dinic's w/ scaling, O(VE log(max_flow))
         return 0;
     }
 
-    Dinic(int vertices) : n(vertices), lim(1 << 30), gr(n) {}
+    Dinic(int vertices, bool scaling = 1) // toggle scaling here
+        : n(vertices), lim(scaling ? 1 << 30 : 1), gr(n) {}
 
     void add_edge(int from, int to, ll cap, bool directed = 1)
     {
