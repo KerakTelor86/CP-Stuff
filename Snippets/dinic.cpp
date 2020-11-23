@@ -2,18 +2,18 @@ using ll = long long;
 
 const ll INF = 1e18;
 
-class Dinic
+struct Dinic // Dinic's w/ scaling, O(VE log(max_flow))
 {
-private:
-    struct Edge         // set the following:
-    {                   // v = destination
-        int v;          // cap = edge value
-        ll cap, flow;   // flow = 0
+    struct Edge
+    {
+        int v;
+        ll cap, flow;
 
         Edge(int _v, ll _cap) : v(_v), cap(_cap), flow(0) {}
     };
 
     int n;
+    ll lim;
     vector<vector<int>> gr;
     vector<Edge> e;
     vector<int> idx, lv;
@@ -34,7 +34,8 @@ private:
             }
             for(auto& i : gr[c])
             {
-                if(lv[e[i].v] == -1 && e[i].cap > e[i].flow)
+                ll cur_flow = e[i].cap - e[i].flow;
+                if(lv[e[i].v] == -1 && cur_flow > 0 && cur_flow >= lim)
                 {
                     lv[e[i].v] = lv[c] + 1;
                     q.push(e[i].v);
@@ -72,8 +73,7 @@ private:
         return 0;
     }
 
-public:
-    Dinic(int vertices) : n(vertices), gr(n) {}
+    Dinic(int vertices) : n(vertices), lim(1 << 30), gr(n) {}
 
     void add_edge(int from, int to, ll cap, bool directed = 1)
     {
@@ -83,18 +83,21 @@ public:
         e.emplace_back(from, directed ? 0 : cap);
     }
 
-    ll get_max_flow(int s, int t)
+    ll get_max_flow(int s, int t) // call this
     {
         ll res = 0;
-        while(has_path(s, t))
+        while(lim) // scaling
         {
-            idx.assign(n, 0);
-            while(ll add = get_flow(s, t, INF))
+            while(has_path(s, t))
             {
-                res += add;
+                idx.assign(n, 0);
+                while(ll add = get_flow(s, t, INF))
+                {
+                    res += add;
+                }
             }
+            lim >>= 1;
         }
         return res;
     }
 };
-
